@@ -44,6 +44,7 @@ wget --continue --output-document "${CACHED_DOWNLOAD}" "${ELASTICSEARCH_DL_URL}"
 tar -xaf "${CACHED_DOWNLOAD}" --strip-components=1 --directory "${ELASTICSEARCH_DIR}"
 
 echo "http.port: ${ELASTICSEARCH_PORT}" >> ${ELASTICSEARCH_DIR}/config/elasticsearch.yml
+cat ${ELASTICSEARCH_YML_PATH} >> ${ELASTICSEARCH_DIR}/config/elasticsearch.yml
 
 if [ "$ELASTICSEARCH_PLUGINS" ]
 then
