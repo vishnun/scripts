@@ -45,6 +45,9 @@ tar -xaf "${CACHED_DOWNLOAD}" --strip-components=1 --directory "${ELASTICSEARCH_
 
 echo "http.port: ${ELASTICSEARCH_PORT}" >> ${ELASTICSEARCH_DIR}/config/elasticsearch.yml
 
+# Append custom yml config.
+cat ${ELASTICSEARCH_YML_PATH} >> ${ELASTICSEARCH_DIR}/config/elasticsearch.yml
+
 if [ "$ELASTICSEARCH_PLUGINS" ]
 then
   for i in $ELASTICSEARCH_PLUGINS ; do
