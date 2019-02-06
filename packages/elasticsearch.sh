@@ -54,5 +54,5 @@ then
 fi
 
 # Make sure to use the exact parameters you want for ElasticSearch
-bash -c "${ELASTICSEARCH_DIR}/bin/elasticsearch 2>&1 >/dev/null" >/dev/null & disown
+bash -c "${ELASTICSEARCH_DIR}/bin/elasticsearch -Dsecurity.manager.enabled=false 2>&1 >/dev/null" >/dev/null & disown
 wget --retry-connrefused --tries=0 --waitretry=1 -O- -nv http://localhost:${ELASTICSEARCH_PORT}
